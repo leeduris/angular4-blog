@@ -1,0 +1,51 @@
+<md-sidenav-container  fullscreen class="demo-root">
+
+    <md-sidenav #start mode="side" opened style="width: 18%;" id="style-11" class="scrollbar">   
+
+      <md-toolbar color="warn"> 
+          <button md-icon-button *ngIf="showSearch" routerLink="home">
+            <md-icon>home</md-icon>
+          </button>         
+          <button md-icon-button *ngIf="showSearch" (click)="toggleLock()">
+            <md-icon *ngIf="lock">lock</md-icon>
+            <md-icon *ngIf="!lock">lock_open</md-icon>
+          </button>
+      </md-toolbar>  
+   
+      <div>
+        <md-nav-list flex>
+          
+          <h5 class="subheader" md-subheader style="color: darkred">JavaScript({{categoryCnt[0]}})</h5>
+          <md-list-item class="md-2-line" *ngFor="let navTutorial of navTutorials | arrayFilter:'category':'js'; let i=index;" routerLink={{navTutorial.route}}>
+              <md-icon color="warn" style="margin-right: 12px">{{navTutorial.icon}}</md-icon> 
+              <span class="md-list-item-text" style="font-size: 13px">{{navTutorial.title}}({{blogCnt[i]}})</span>
+          </md-list-item>
+
+          <h5 class="subheader" md-subheader style="color:darkred">Advanced Languages({{categoryCnt[1]}})</h5>
+          <md-list-item class="md-2-line" *ngFor="let navTutorial of navTutorials | arrayFilter:'category':'oop'; let i=index;" routerLink={{navTutorial.route}}>
+              <md-icon color="primary" style="margin-right: 12px">{{navTutorial.icon}}</md-icon> 
+              <span class="md-list-item-text" style="font-size: 13px">{{navTutorial.title}}({{blogCnt[i+7]}})</span>
+          </md-list-item>
+          <h5 class="subheader" md-subheader style="color:darkred">Big Data({{categoryCnt[2]}})</h5>
+          <md-list-item class="md-2-line" *ngFor="let navTutorial of navTutorials | arrayFilter:'category':'data'; let i=index;" routerLink={{navTutorial.route}}>
+              <md-icon color="accent" style="margin-right: 12px">{{navTutorial.icon}}</md-icon> 
+              <span class="md-list-item-text" style="font-size: 13px">{{navTutorial.title}}({{blogCnt[i+10]}})</span>
+          </md-list-item>
+          <h5 class="subheader" md-subheader style="color: darkred">Career({{categoryCnt[3]}})</h5>
+          <md-list-item class="md-2-line" *ngFor="let navTutorial of navTutorials | arrayFilter:'category':'career'; let i=index;" routerLink={{navTutorial.route}}>
+              <md-icon color="warn" style="margin-right: 12px">{{navTutorial.icon}}</md-icon> 
+              <span class="md-list-item-text" style="font-size: 13px">{{navTutorial.title}}({{blogCnt[i+14]}})</span>
+          </md-list-item>
+
+        </md-nav-list>  
+      </div> 
+    </md-sidenav> 
+
+
+    <div #root="$implicit" dir="ltr" class="main-content" style="height: 100%;" id="style-15" class="scrollbar">
+        <router-outlet></router-outlet>
+    </div>
+
+
+</md-sidenav-container>
+

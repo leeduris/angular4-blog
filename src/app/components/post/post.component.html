@@ -1,0 +1,28 @@
+<md-toolbar color="accent">
+  <span class="blog">Welcome to Duris</span>
+  <span><a href="https://github.com/leeduris" target="_tab" class="Portfolio">GitHub</a></span>&nbsp;|&nbsp;<span class="cmail Portfolio">leeduris@gmail.com</span>
+  <span class="path">Directives > {{path}}</span>
+  <md-input-container *ngIf="searchTag">
+    <span>Search Tag @{{path}}::&nbsp;<input mdInput [(ngModel)]="searchDesc"></span>
+  </md-input-container>
+</md-toolbar>  
+
+
+<md-card *ngFor="let blog of selectedblogs | arrayFilter:'tag':searchDesc" style="margin:0 auto;">  
+  <div class="menu-toolbar">
+    <span class="topic">TOPIC:: {{blog.topic}}</span>     
+  </div><br>  
+  <md-card-title>{{blog.title}}</md-card-title> 
+  <md-card-subtitle class="md-subhead">{{blog.desc}}</md-card-subtitle><br>
+  <button *ngIf="blog.iframeurl" class="label label-success" (click)="refresh()">Demo Refresh</button>
+  <button *ngIf="blog.iframeurl" class="label label-info"><a href="blog.iframeurl" target="_tab">Demo Link</a></button>
+  <md-card-content *ngIf="blog.iframeurl" style="margin:0 auto;">
+    <iframe class="embeddedFrame" [src]="blog.iframeurl | safeurl" frameborder="0" scrolling="blog.scrolling">
+    </iframe>
+  </md-card-content>
+  <md-card-content [innerHTML]='blog.context | safehtml'></md-card-content>
+  <!-- <md-card-content #dataContainer></md-card-content> -->
+  <md-card-content>Updated at {{blog.date}}</md-card-content>
+  <md-card-content>Tags:: {{blog.tag}}</md-card-content>
+</md-card>
+

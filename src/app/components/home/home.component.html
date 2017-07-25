@@ -1,0 +1,31 @@
+<div class="tab-content">
+  <md-tab-group class="demo-tab-group" [selectedIndex]="1" md-dynamic-height md-border-bottom>
+    <md-tab label="Instagram API">
+      <div class="tab-content" style="display:flex; justify-content: center; flex-wrap: wrap;">
+        <md-card *ngFor='let instaInfo of instaInfos' style="flex: 30%">
+          <img [src]="instaInfo['images']['low_resolution']['url']">
+          <md-card-content>
+            {{ instaInfo['caption']['text'] }} :: {{ instaInfo['created_time']*1000 | date }}
+          </md-card-content>
+        </md-card>
+      </div>
+    </md-tab>
+
+    <md-tab label="Graduation Portfolio">
+      <div class="tab-content" style="display:flex; justify-content: center; flex-wrap: wrap;">
+       <md-card style="background-color: lightblue">
+         <md-card-title >
+            <span class="md-headline">My Sheridan College Graduation Portfolio Video</span>
+        </md-card-title>
+        <md-card-content>
+          <iframe width="853" height="480" src="https://www.youtube.com/embed/4GiM9jnwdj4?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+        </md-card-content>
+        <md-card-content>
+          <iframe width="853" height="480" src="https://www.youtube.com/embed/0lyZ1UGeiR0?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+        </md-card-content>  
+      </md-card> 
+      </div>
+    </md-tab>
+
+  </md-tab-group>  
+</div>

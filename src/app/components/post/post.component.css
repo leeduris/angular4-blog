@@ -1,0 +1,59 @@
+pagination-controls {
+    text-align: right;
+}
+
+.topic {
+    float: left;
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.menu-toolbar {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+
+md-input-container input {
+    width: 40%;
+    padding: 0;
+    margin: 0;
+}
+
+md-input-container{
+    width: 40%;
+    padding: 0;
+    margin: 5px 0 0 10px;
+    font-weight: bold;
+
+}
+
+md-card {
+    margin: 2px 0 0 0;
+}
+
+.blog {
+    margin: 0 10px 0 10px;
+    color: orangered;
+    font-weight: bold;
+    text-align: left;
+}
+
+.path {
+    margin: 0 100px 0 70px;
+    color: indigo;
+    text-align: right;
+    font-size: 15px;
+}
+
+.cmail {
+    margin-top: 4px;
+}
+
+a {
+    color: red;
+    text-decoration: none;
+}
+
